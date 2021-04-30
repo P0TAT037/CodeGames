@@ -48,9 +48,9 @@ public class EuclidsGame {
         key = Math.max(x,y)/gcd(x, y);
 
         if(key % 2 == 0) {
-            System.out.println("Player 1 wins");
-        } else {
             System.out.println("Player 2 wins");
+        } else {
+            System.out.println("Player 1 wins");
         }
     }
 }
