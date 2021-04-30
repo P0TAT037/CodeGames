@@ -1,12 +1,12 @@
 # euclid-s-game-catatoes  
   
-"given the two numbers are m and n"  
-algorithm used:  
+"given the two numbers are (m) and (n)"  
+the algorithm used is:  
   
-g = gcd(m, n)  
-key = m/g  
-
-if( (key % 2) == 0)  
-	"player 2 wins"  
-else  
-	"player 1 wins"  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g = gcd(m, n)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key = max(m,n)/g  
+  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if( (key % 2) == 0)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"player 2 wins"  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"player 1 wins"  

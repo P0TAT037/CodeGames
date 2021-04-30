@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author P0TAT037, Siko69
+ * @author P0TAT037, siko69
  */
 
 public class EuclidsGame {

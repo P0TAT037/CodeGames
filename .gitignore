@@ -4,6 +4,7 @@
 .idea/
 out/
 **.iml
+.gitignore
 
 # User-specific stuff
 .idea/**/workspace.xml
