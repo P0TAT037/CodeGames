@@ -13,7 +13,7 @@ public class Main {
         int n = 0; //number of letters that match the first letter in the word
         boolean f = false;
 
-        grid[0][0] = 'l';
+       /* grid[0][0] = 'l';
         grid[0][1] = 'o';
         grid[0][2] = 'v';
         grid[0][3] = 'e';
@@ -28,13 +28,18 @@ public class Main {
         grid[1][3] = 't';
         grid[3][3] = 'm';
         grid[4][3] = 'e';
-
+        grid[6][8] = 's';
+        grid[8][6] = 'r';
+        grid[9][5] = 'e';*/
+        grid[0][4] = 'e';
+        grid[1][5] = 'r';
+        grid[2][6] = 'u';
+        grid[3][7] = 's';
         /*
          *bruh diagonal
          *nice upside down
          *time horizontal
          */
-
 
         //search for the first letter
         for (int i = 0; i < 10; i++) {
@@ -139,6 +144,8 @@ public class Main {
 
 
                 if (grid[(I)][(J)] != word.charAt(k)) {
+                    I = location[i][0];
+                    J = location[i][1];
                     break;
                 } else if (word.length() - 1 == k) {
                     f = true;
@@ -161,7 +168,6 @@ public class Main {
                 if (J < 0) {
                     J = J + I;
                     I = 9;
-
                 }
 
                 if (grid[(I)][(J)] != word.charAt(k)) {
@@ -179,4 +185,3 @@ public class Main {
         }
     }
 }
-
