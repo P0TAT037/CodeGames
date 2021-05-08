@@ -99,16 +99,55 @@ public class Main {
                 }
             }
 
-            //searching diagonally
+            //searching diagonally downwards
             for (int k = 1; k < word.length(); k++) {
+
                 I = I + k;
                 J = J + k;
+
+                if (I > 9) {
+                    I = I - J;
+                    J = 0;
+                }
+                if (J > 9) {
+                    J = J - I;
+                    I = 0;
+                }
+
 
                 if (grid[(I)][(J)] != word.charAt(k)) {
                     break;
                 } else if (word.length() - 1 == k) {
                     f = true;
-                    System.out.println("Found diagonally at index: " + location[i][0] + ", " + location[i][1]);
+                    System.out.println("Found diagonally, downwards at index: " + location[i][0] + ", " + location[i][1]);
+                    break;
+                }
+            }
+
+
+            //searching diagonally upwards
+            for (int k = 1; k < word.length(); k++) {
+
+                I = I + k;
+                J = J + k;
+
+                if (I > 9) {
+                    I = I - J;
+                    J = 0;
+                }
+                if (J > 9) {
+                    J = J - I;
+                    I = 0;
+                }
+
+                I = I - (I - (k - 1));
+                J = J - (J - (k - 1));
+
+                if (grid[(I)][(J)] != word.charAt(k)) {
+                    break;
+                } else if (word.length() - 1 == k) {
+                    f = true;
+                    System.out.println("Found diagonally, upwards at index: " + location[i][0] + ", " + location[i][1]);
                     break;
                 }
             }
