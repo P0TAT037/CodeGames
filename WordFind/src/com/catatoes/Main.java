@@ -13,10 +13,27 @@ public class Main {
         int n = 0; //number of letters that match the first letter in the word
         boolean f = false;
 
-        grid[0][0] = 'b';
-        grid[0][1] = 'r';
-        grid[0][2] = 'u';
-        grid[0][3] = 'h';
+        grid[0][0] = 'l';
+        grid[0][1] = 'o';
+        grid[0][2] = 'v';
+        grid[0][3] = 'e';
+        grid[5][5] = 'b';
+        grid[6][6] = 'r';
+        grid[7][7] = 'u';
+        grid[8][8] = 'h';
+        grid[2][4] = 'n';
+        grid[2][3] = 'i';
+        grid[2][2] = 'c';
+        grid[2][1] = 'e';
+        grid[1][3] = 't';
+        grid[3][3] = 'm';
+        grid[4][3] = 'e';
+
+        /*
+         *bruh diagonal
+         *nice upside down
+         *time horizontal
+         */
 
         //search for the first letter
         for (int i = 0; i < 10; i++) {
@@ -54,8 +71,7 @@ public class Main {
             //searching horizontally right to left
             for (int k = 1; k < word.length(); k++) {
 
-                I = (I + 1) % 10;
-                I = I - (I - (k - 1));
+                I = ((I - 1) % 10 + 10) % 10;
 
                 if (grid[I][J] != word.charAt(k)) {
                     I = location[i][0];
@@ -87,8 +103,8 @@ public class Main {
             //searching vertically upwards
             for (int k = 1; k < word.length(); k++) {
 
-                J = (J + 1) % 10;
-                J = J - (J - (k - 1));
+                J = ((J - 1) % 10 + 10) % 10;
+
 
                 if (grid[I][J] != word.charAt(k)) {
                     I = location[i][0];
@@ -107,8 +123,8 @@ public class Main {
             //searching diagonally downwards
             for (int k = 1; k < word.length(); k++) {
 
-                I = I + k;
-                J = J + k;
+                I = I + 1;
+                J = J + 1;
 
                 if (I > 9) {
                     I = I - J;
@@ -133,20 +149,18 @@ public class Main {
             //searching diagonally upwards
             for (int k = 1; k < word.length(); k++) {
 
-                I = I + k;
-                J = J + k;
+                I = I - 1;
+                J = J - 1;
 
-                if (I > 9) {
-                    I = I - J;
-                    J = 0;
+                if (I < 0) {
+                    I = I + J;
+                    J = 9;
                 }
-                if (J > 9) {
-                    J = J - I;
-                    I = 0;
-                }
+                if (J < 0) {
+                    J = J + I;
+                    I = 9;
 
-                I = I - (I - (k - 1));
-                J = J - (J - (k - 1));
+                }
 
                 if (grid[(I)][(J)] != word.charAt(k)) {
                     break;
