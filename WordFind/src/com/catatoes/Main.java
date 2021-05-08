@@ -35,6 +35,7 @@ public class Main {
          *time horizontal
          */
 
+
         //search for the first letter
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
