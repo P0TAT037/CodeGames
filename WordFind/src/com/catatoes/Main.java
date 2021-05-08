@@ -22,37 +22,6 @@ public class Main {
         int n = 0; //number of letters that match the first letter in the word
         boolean f = false;
 
-       /* grid[0][0] = 'l';
-        grid[0][1] = 'o';
-        grid[0][2] = 'v';
-        grid[0][3] = 'e';
-        grid[5][5] = 'b';
-        grid[6][6] = 'r';
-        grid[7][7] = 'u';
-        grid[7][7] = 'h';
-        grid[2][4] = 'n';
-        grid[2][3] = 'i';
-        grid[2][2] = 'c';
-        grid[2][1] = 'e';
-        grid[1][3] = 't';
-        grid[3][3] = 'm';
-        grid[4][3] = 'e';
-        grid[6][7] = 's';
-        grid[7][6] = 'r';
-        grid[7][5] = 'e';*/
-       /* grid[0][4] = 'e';
-        grid[1][5] = 'r';
-        grid[2][6] = 'u';
-        grid[3][7] = 's';
-        grid[0][0] = 'v';
-        grid[0][1] = 'e';
-        grid[0][7] = 'l';
-        grid[0][7] = 'o';
-        /*
-         *bruh diagonal
-         *nice upside down
-         *time horizontal
-         */
 
         //search for the first letter
         for (int i = 0; i < 7; i++) {
