@@ -52,42 +52,10 @@ public class Main {
             int I = location[i][0];
             int J = location[i][1];
 
-            //searching horizontally left to right
-            for (int k = 1; k < word.length(); k++) {
-
-                I = (I + 1) % 10;
-
-                if (grid[I][J] != word.charAt(k)) {
-                    I = location[i][0];
-                    J = location[i][1];
-                    break;
-                } else if (word.length() - 1 == k) {
-                    f = true;
-                    System.out.println("Found horizontally, left to right at index: " + location[i][0] + ", " + location[i][1]);
-                    break;
-                }
-            }
-
-            //searching horizontally right to left
-            for (int k = 1; k < word.length(); k++) {
-
-                I = ((I - 1) % 10 + 10) % 10;
-
-                if (grid[I][J] != word.charAt(k)) {
-                    I = location[i][0];
-                    J = location[i][1];
-                    break;
-                } else if (word.length() - 1 == k) {
-                    f = true;
-                    System.out.println("Found horizontally, right to left at index: " + location[i][0] + ", " + location[i][1]);
-                    break;
-                }
-            }
-
             //searching vertically downwards
             for (int k = 1; k < word.length(); k++) {
 
-                J = (J + 1) % 10;
+                I = (I + 1) % 10;
 
                 if (grid[I][J] != word.charAt(k)) {
                     I = location[i][0];
@@ -103,6 +71,38 @@ public class Main {
             //searching vertically upwards
             for (int k = 1; k < word.length(); k++) {
 
+                I = ((I - 1) % 10 + 10) % 10;
+
+                if (grid[I][J] != word.charAt(k)) {
+                    I = location[i][0];
+                    J = location[i][1];
+                    break;
+                } else if (word.length() - 1 == k) {
+                    f = true;
+                    System.out.println("Found vertically, bottom to top at index: " + location[i][0] + ", " + location[i][1]);
+                    break;
+                }
+            }
+
+            //searching horizontally left to right
+            for (int k = 1; k < word.length(); k++) {
+
+                J = (J + 1) % 10;
+
+                if (grid[I][J] != word.charAt(k)) {
+                    I = location[i][0];
+                    J = location[i][1];
+                    break;
+                } else if (word.length() - 1 == k) {
+                    f = true;
+                    System.out.println("Found horizontally, left to right at index: " + location[i][0] + ", " + location[i][1]);
+                    break;
+                }
+            }
+
+            //searching horizontally right to left
+            for (int k = 1; k < word.length(); k++) {
+
                 J = ((J - 1) % 10 + 10) % 10;
 
 
@@ -114,7 +114,8 @@ public class Main {
                 } else if (word.length() - 1 == k) {
 
                     f = true;
-                    System.out.println("Found vertically, bottom to top at index: " + location[i][0] + ", " + location[i][1]);
+                    System.out.println("Found horizontally, right to left at index: " + location[i][0] + ", " + location[i][1]);
+
                     break;
 
                 }
