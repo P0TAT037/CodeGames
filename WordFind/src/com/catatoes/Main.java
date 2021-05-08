@@ -22,7 +22,6 @@ public class Main {
         int n = 0; //number of letters that match the first letter in the word
         boolean f = false;
 
-
         //search for the first letter
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 7; j++) {
