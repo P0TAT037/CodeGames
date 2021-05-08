@@ -13,7 +13,6 @@ public class Main {
         int n = 0; //number of letters that match the first letter in the word
         boolean f = false;
 
-
         //search for the first letter
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
@@ -25,11 +24,20 @@ public class Main {
             }
         }
 
+
         for (int i = 0; i < n; i++) {
+
+            int I = location[i][0];
+            int J = location[i][1];
 
             //searching horizontally left to right
             for (int k = 1; k < word.length(); k++) {
-                if (!(grid[(location[i][0] + k) % 10][location[i][1]] == word.charAt(k))) {
+
+                I = (I + k) % 10;
+
+                if (grid[I][J] != word.charAt(k)) {
+                    I = location[i][0];
+                    J = location[i][1];
                     break;
                 } else if (word.length() - 1 == k) {
                     f = true;
@@ -40,7 +48,13 @@ public class Main {
 
             //searching horizontally right to left
             for (int k = 1; k < word.length(); k++) {
-                if (!(grid[((location[i][0] + k) % 10) - (((location[i][0] + k) % 10) - 1)][location[i][1]] == word.charAt(k))) {
+
+                I = (I + k) % 10;
+                I = I - (I - (k - 1));
+
+                if (grid[I][J] != word.charAt(k)) {
+                    I = location[i][0];
+                    J = location[i][1];
                     break;
                 } else if (word.length() - 1 == k) {
                     f = true;
@@ -51,7 +65,12 @@ public class Main {
 
             //searching vertically downwards
             for (int k = 1; k < word.length(); k++) {
-                if (!(grid[location[i][0]][(location[i][1] + k) % 10] == word.charAt(k))) {
+
+                J = (J + k) % 10;
+
+                if (grid[I][J] != word.charAt(k)) {
+                    I = location[i][0];
+                    J = location[i][1];
                     break;
                 } else if (word.length() - 1 == k) {
                     f = true;
@@ -62,18 +81,30 @@ public class Main {
 
             //searching vertically upwards
             for (int k = 1; k < word.length(); k++) {
-                if (!(grid[location[i][0]][((location[i][1] + k) % 10) - (((location[i][1] + k) % 10) - 1)] == word.charAt(k))) {
+
+                J = (J + k) % 10;
+                J = J - (J - (k - 1));
+
+                if (grid[I][J] != word.charAt(k)) {
+                    I = location[i][0];
+                    J = location[i][1];
                     break;
+
                 } else if (word.length() - 1 == k) {
+
                     f = true;
                     System.out.println("Found vertically, bottom to top at index: " + location[i][0] + ", " + location[i][1]);
                     break;
+
                 }
             }
 
             //searching diagonally
             for (int k = 1; k < word.length(); k++) {
-                if (!(grid[(location[i][0] + k)][(location[i][1] + k)] == word.charAt(k))) {
+                I = I + k;
+                J = J + k;
+
+                if (grid[(I)][(J)] != word.charAt(k)) {
                     break;
                 } else if (word.length() - 1 == k) {
                     f = true;
@@ -84,7 +115,7 @@ public class Main {
         }
 
         if (!f) {
-            System.out.println("NOT FOUND :(");
+            System.out.println("NOT FOUND! :(");
         }
     }
 }
